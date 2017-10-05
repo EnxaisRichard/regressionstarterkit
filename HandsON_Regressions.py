@@ -3,8 +3,9 @@
 
 # # Enaxis Data Science Regression Algorithms Starter-Kit with Python
 
-# We are in 2017 and every Fortune 500 company is talking about leveraging A.I. & machine learning algorithms to future proof their business.  Leading scientists are predicting Moore's Law for technology is becoming impossible and the shift will focus on making computers more accessible to our species.   
-# We see the [effects of machine learning](https://www.forbes.com/sites/bernardmarr/2016/09/30/what-are-the-top-10-use-cases-for-machine-learning-and-ai/#63c6398e94c9) escalating to make everyday life more personalized to everyone.  Online shopping recommendation, auto-enhancing selfies, self-driving cars, or even unlocking our phones are driven by machine learning technology.  
+# Are you ready to get some machine learning experience under your belt?
+# 
+# We are in 2017 and every Fortune 500 company is talking about leveraging machine learning algorithms to future proof and automate their business.  Leading scientists are predicting Moore's Law for technology is becoming impossible and the shift will focus on making computers more accessible to our species. We see the [effects of machine learning](https://www.forbes.com/sites/bernardmarr/2016/09/30/what-are-the-top-10-use-cases-for-machine-learning-and-ai/#63c6398e94c9) escalating to make everyday life more personalized to everyone.  Online shopping recommendation, auto-enhancing selfies, self-driving cars, or even unlocking our phones are driven by machine learning technology.
 # 
 # Like most people, everyone is pondering on how machine learning operates in the background? Well machine learning algorithms are divided based on the data available.  
 # 
@@ -21,6 +22,8 @@
 # ## [II. Data Ingestion](#ingestion)
 # ## [III. Data Pre-Processing](#preprocessing)
 # ## [IV. Regression Modeling](#regression)
+# 
+# For those interested in copying+pasting the whole code at once, you can find the github repo [here](https://github.com/EnxaisRichard/regressionstarterkit/blob/master/HandsON_Regressions.py)
 
 # <a id='setup'></a>
 # ### I. Data Science Enviroment Setup
