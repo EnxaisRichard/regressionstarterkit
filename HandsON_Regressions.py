@@ -49,7 +49,7 @@
 # #### Importing your python Data Science Libraries.
 # For any libraries that do not work, go ahead and open command prompt/terminal again and type in "pip install #library name" to download/install python libraries automatically for quick usage.
 
-# In[47]:
+# In[1]:
 
 # <-- By the way, hastags are used to write comments in Python.
 #I will be commenting most of the code to give context to what is happening.
@@ -75,7 +75,7 @@ print("-------------------------------------")
 # #### Uploading or referencing a dataset
 # For other different methods of uploading a dataset examples, please click [here](https://chrisalbon.com/python/pandas_dataframe_importing_csv.html).
 
-# In[52]:
+# In[2]:
 
 #Link from the UC Irvine public dataset on Forest Fires
 url="http://archive.ics.uci.edu/ml/machine-learning-databases/forest-fires/forestfires.csv"
@@ -123,7 +123,7 @@ print("-------------------------------------")
 # 
 # For a further in-depth guide to data pre-processing, please refer [here](https://www.analyticsvidhya.com/blog/2016/07/practical-guide-data-preprocessing-python-scikit-learn/)
 
-# In[57]:
+# In[3]:
 
 #preview the data type for each columns
 print("Data Types")
@@ -157,7 +157,7 @@ print("-------------------------------------")
 # 
 # For more details on other visual methods, please refer [here](http://pbpython.com/simple-graphing-pandas.html)
 
-# In[58]:
+# In[4]:
 
 #python math plotting/chart library
 import seaborn as sns
@@ -177,7 +177,7 @@ print("-------------------------------------")
 # 
 # Fore more details about data scaling or normalization, please [refer here](https://en.wikipedia.org/wiki/Feature_scaling).
 
-# In[59]:
+# In[5]:
 
 from sklearn.preprocessing import MinMaxScaler
 #call scaler function(converting range of value in column from 0-1) from sklearn
@@ -216,7 +216,7 @@ print("-------------------------------------")
 # 
 # For more explanation, please refer to this link [here](https://info.salford-systems.com/blog/bid/337783/Why-Data-Scientists-Split-Data-into-Train-and-Test)
 
-# In[61]:
+# In[6]:
 
 from sklearn.cross_validation import train_test_split
 #split the dataset into a training set(80% of the data) and test set(20% of the data)
@@ -233,11 +233,19 @@ print("-------------------------------------")
 # ### Regression Modeling
 # [Back to Table of Content](#toc)
 # 
-# Lets get to the juicy part and actually apply some machine learning models to our ready splitted dataset.  Most of the algorithms have been packaged by [sklearn](http://scikit-learn.org/stable/) which makes application and usage of them effortless.
+# Lets get to the juicy part and actually apply some machine learning models to our ready splitted dataset.  Most of the algorithms have been packaged by [sklearn](http://scikit-learn.org/stable/) which makes the code application or usage of machine learning easier than you think.
 # 
 # For more details about regression analysis, please refer to the link [here](https://www.analyticsvidhya.com/blog/2015/08/comprehensive-guide-regression/)
 
-# In[49]:
+# #### Hyper-Parameter Tuning & Cross Validation
+# 
+# ##### Hyper-Parameter Tuning
+# Most machine learning models have a fixed numbers of parameters that can be tuned for a given solution. Finding the optimal combination manually is challenge. Therefore, we automated the parameter search process by running all possible combinations for the best score in a given list(GridSearchCV). 
+# 
+# For a more in-depth guide for hyper-parameter tuning, please refer to the link [here](https://machinelearningmastery.com/how-to-tune-algorithm-parameters-with-scikit-learn/)
+# 
+
+# In[7]:
 
 #sklearn libraries for actually preforming machine learning
 from sklearn.ensemble import RandomForestRegressor
@@ -278,73 +286,149 @@ rf_estimator = RandomForestRegressor(**rf_params)
 print("Regression objects assigned to variables.")
 print("-------------------------------------")
 
-#Create a loop cycle for different regression used with GBM being first
-regression_names = itertools.cycle(["Gradient Boost Machine Regression", "AdaBoost Regession", "Random Forest Regression"])
-parameters_cycle = itertools.cycle([gbm_params, ada_params, rf_params])
-regressions_cycle = itertools.cycle([gbm_estimator, ada_estimator, rf_estimator])
-colors_cycle = itertools.cycle(["r", "b","g"])
+#Create a cycle for different regression variables to be used in a set loop we will create
+reg_names_cycle = ["Gradient Boost Machine Regression", "AdaBoost Regession", "Random Forest Regression"]
+reg_params_cycle = [gbm_params, ada_params, rf_params]
+reg_estimator_cycle = [gbm_estimator, ada_estimator, rf_estimator]
+print("variable cycles aligned and set.")
+print("-------------------------------------")
+
+
+
+# ##### Cross-Validation
+# [Back to Table of Content](#toc)
+# To test your model consistent, typically you have to divide your data out K number of times as well as run the model K number of times with different subsets of training and validation datasets each round.
+# 
+# ![alt text](https://upload.wikimedia.org/wikipedia/commons/1/1c/K-fold_cross_validation_EN.jpg "4KFolds Cross-Validation")
+# 
+# 
+# For a more in-depth guide for cross-validation, please refer to the link [here](https://www.analyticsvidhya.com/blog/2015/11/improve-model-performance-cross-validation-in-python-r/)
+
+# In[8]:
 
 #sklearn libraries for paramter tuning
 from sklearn.model_selection import GridSearchCV
 
-#create function to plot actual vs predicted target values
-def actual_vs_predicted(predicted_values, regression_names, test_score, train_score, color):   
-    plt.figure(figsize=(15,7.5))
-    plt.scatter(y_test, predicted_values, color=color, label=regression_names, s=10)
-    test_score = np.round(test_score,3)
-    train_score = np.round(train_score,3)
-    plt.title("{} - Actual vs Predicted with Test r2 Score: {} & Train r2 Score: {}.".format(regression_names, test_score, train_score))
-    plt.xlabel("Actual Value")
-    plt.ylabel("Predicted Value")
-    plt.plot([min(y_test), max(y_test)], [min(y_test), max(y_test)])
-    plt.legend()
-    plt.show()
+#number of regression used
+number_of_regressions = 3
 
 #Set a loop to go through each regression
-for x in range(3):
+for x in range(number_of_regressions):
     #create variables for each cycle iterations
-    current_regression = next(regressions_cycle)
-    current_parameters = next(parameters_cycle)
-    current_reg_name = next(regression_names)
-    current_color = next(colors_cycle)
+    current_regression = reg_estimator_cycle[x]
+    current_parameters = reg_params_cycle[x]
+    current_reg_name = reg_names_cycle[x]
+    print("x is {}.".format(x))
+    print("Current_reg_name is {}.".format(current_reg_name))
+    print("Current_regression is {}.".format(current_regression))
+    print("Current_parameters is {}.".format(current_parameters))
     
     #run through all different parameters setting to find the best score
-    run_gridSearchCV = GridSearchCV(current_regression, current_parameters, verbose=1, cv=4).fit(X_train, y_train)
+    current_regression = GridSearchCV(current_regression, current_parameters, verbose=1, cv=4).fit(X_train, y_train)
     
     #provide feature importance for each regression model
-    importances = pd.DataFrame({'feature':scaled_features_df.columns,'importance':np.round(run_gridSearchCV.best_estimator_.feature_importances_,3)})
+    importances = pd.DataFrame({'feature':scaled_features_df.columns,'importance':np.round(current_regression.best_estimator_.feature_importances_,3)})
     importances = importances.sort_values('importance',ascending=False).set_index('feature')
     print(importances)
     print()
     
     #print out best mean cross validation scores
-    current_best_cv_score = run_gridSearchCV.best_score_
+    current_best_cv_score =  current_regression.best_score_
     print("The optimal 4 KFolds Cross Validation Mean score on our training data with a {} is {}".format(current_reg_name, current_best_cv_score))
     print("Using the recommended parameters:")
-    print(run_gridSearchCV.best_params_)
+    print(current_regression.best_params_)
     print()
     
     #run best parameters on training and test data, then assign variables
-    current_r2_train_score = run_gridSearchCV.score(X_train,y_train)
-    current_r2_test_score = run_gridSearchCV.score(X_test,y_test)
-    print("The optimal parameters used on the Test Data scored: {}".format(current_r2_test_score))
-    
-    #run prediction on test data and assign variable
-    current_predicted_values = run_gridSearchCV.predict(X_test)
-    
-    #place all variables created through function for plotting actual vs predicted values
-    actual_vs_predicted(current_predicted_values, current_reg_name, current_r2_test_score, current_r2_train_score, current_color)
+    current_r2_train_score =current_regression.score(X_train,y_train)
+    current_r2_test_score = current_regression.score(X_test,y_test)
+    print("The {} provides a Train Data score of: {}".format(current_reg_name, current_r2_train_score))
+    print("The {} provides a Test Data score of: {}".format(current_reg_name, current_r2_test_score))
     print("-------------------------------------")
     
+    
+    #save back to reg_estimator_cycle for scoring later
+    reg_estimator_cycle[x] = current_regression
+    print("Saved current_regression optimal parameters back to reg_names_cycle variable")
+    print("-------------------------------------")
 
 
+# #### Evaluation Metric
 # [Back to Table of Content](#toc)
+# 
+# In this example we will be using the coefficent of determinination to score our model performance. It rates the model from 0-100 percent, making it very easy to interpret.
+# 
+# For more evaluation metric for modeling performance, please check out the link [here](https://machinelearningmastery.com/metrics-evaluate-machine-learning-algorithms-python/).
 
-# For more details about cross validaiton, please refer here.
-# 
-# For more details about hyper parameter tuning, please refer here.
-# 
-# For more details about evaulation metrics, please refer here.
+# In[60]:
+
+#create list of empty arrays for predictions
+length_predictions = len(X_test)
+gbm_predictions = []
+ada_predictions = []
+rf_predictions = []
+
+reg_predictions_cycle = [gbm_predictions, ada_predictions, rf_predictions]
+
+for x in range(number_of_regressions):   
+    #create variables for each cycle iterations
+    current_regression = reg_estimator_cycle[x]
+    current_reg_name = reg_names_cycle[x]
+    
+    #run best parameters on training and test data, then assign variables
+    current_r2_train_score =current_regression.score(X_train,y_train)
+    current_r2_test_score = current_regression.score(X_test,y_test)
+    print("The {} provides a Train Data score of: {}".format(current_reg_name, current_r2_train_score))
+    print("The {} provides a Test Data score of: {}".format(current_reg_name, current_r2_test_score))
+    
+    #assign best parameter predictions
+    reg_predictions_cycle[x] = current_regression.predict(X_test)
+    print("The {} have been assigned to prediction variable".format(current_reg_name))
+    print(current_regression.predict(X_test))
+    print("-------------------------------------")
+    
+    
+
+
+# In[ ]:
+
+
+
+
+# In[12]:
+
+#we create function to plot actual vs predicted target values
+def actual_vs_predicted(predicted_values, regression_names, test_score, train_score, color):   
+    plt.figure(figsize=(15,7.5))
+    plt.scatter(y_test, predicted_values, color=color, label=regression_names, s=10)
+    test_score = np.round(test_score,3)
+    train_score = np.round(train_score,3)
+    plt.title("{} - Actual vs Predicted with Test r2  Score: {} & Train r2 Score: {}.".format(regression_names, test_score, train_score))
+    plt.xlabel("Actual Value")
+    plt.ylabel("Predicted Value")
+    plt.plot([min(y_test), max(y_test)], [min(y_test), max(y_test)])
+    plt.legend()
+    plt.show()
+    
+print("function for graph completed")
+print("-------------------------------------")
+
+
+# In[69]:
+
+#place all variables created through function for plotting actual vs predicted values
+plt.figure(figsize=(15,7.5))
+plt.scatter(y_test, reg_predictions_cycle[0], color="r", label="Gradient Boost Machine Regression", s=10)
+plt.scatter(y_test, reg_predictions_cycle[1], color="b", label="AdaBoost Regession", s=10)
+plt.scatter(y_test, reg_predictions_cycle[2], color="g", label="Random Forest Regession", s=10)
+plt.title("Actual vs Predicted")
+plt.xlabel("Actual Value")
+plt.ylabel("Predicted Value")
+plt.plot([min(y_test), max(y_test)], [min(y_test), max(y_test)])
+plt.legend()
+plt.show()
+print("-------------------------------------")
+
 
 # In[ ]:
 
