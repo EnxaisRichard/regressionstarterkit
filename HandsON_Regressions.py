@@ -120,7 +120,7 @@ print("-------------------------------------")
 # ### Data Pre-Processing
 # [Back to Table of Content](#toc)
 # 
-# Most dataset you work with requires a lot of data cleaning before modeling.  In this exercise, we asssume most of the data have already been sponged of blanks, bad information, or outliers.
+# Most dataset you work with requires a lot of data cleaning before modeling.  In this exercise, we asssume most of the data have already been cleansed from missing, wrong, duplicates, or out of range data.
 # 
 # For a further in-depth guide to data pre-processing, please refer [here](https://www.analyticsvidhya.com/blog/2016/07/practical-guide-data-preprocessing-python-scikit-learn/)
 
@@ -154,7 +154,7 @@ print("-------------------------------------")
 # Our purpose for statisical summary is to examine our dataset for any unusual outliers or missing data that could throw off our model.
 
 # #### Data Visualization - Correlation Plot
-# There are many creative method to visually analyze your dataset in order to make hypothesis on your prediction. The most commonly used one for any regression algorithms are correlation plots.
+# There are many creative method to visually analyze your dataset in order to make hypothesis on your prediction. The most commonly used visual for any regression algorithms are correlation plots. 
 # 
 # For more details on other visual methods, please refer [here](http://pbpython.com/simple-graphing-pandas.html)
 
@@ -211,7 +211,7 @@ print("-------------------------------------")
 
 # #### Data Splitting
 # 
-# It is recommended in Data Science procedure to split your dataset by a large percent chunk for training and use the model created on training set to validate the test set for consistency.  In our example, we will split the training set by 80% and leave the remaining 20% as testing.
+# It is recommended in Data Science procedure to split your dataset by a large percent chunk for training and use the model created on training set to evaluate it's competency in our remaining test set. In other words, the "math" is built with the train set, and we test our "math" in the test set.  In our example, we will split the training set by 80% and leave the remaining 20% as testing.
 # 
 # ![alt text](https://www.intechopen.com/source/html/39037/media/image3.jpeg "Train and Test Datasets")
 # 
@@ -231,7 +231,7 @@ print("-------------------------------------")
 
 
 # <a id='regression'></a>
-# ### Regression Modeling
+# ### Regressions Modeling
 # [Back to Table of Content](#toc)
 # 
 # Lets get to the juicy part and actually apply some machine learning models to our ready splitted dataset.  Most of the algorithms have been packaged by [sklearn](http://scikit-learn.org/stable/) which makes the code application or usage of machine learning easier than you think.

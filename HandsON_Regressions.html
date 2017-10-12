@@ -11959,7 +11959,7 @@ sense to model with the logarithm transform)</li>
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a id='preprocessing'></a></p>
 <h3 id="Data-Pre-Processing">Data Pre-Processing<a class="anchor-link" href="#Data-Pre-Processing">&#182;</a></h3><p><a href="#toc">Back to Table of Content</a></p>
-<p>Most dataset you work with requires a lot of data cleaning before modeling.  In this exercise, we asssume most of the data have already been sponged of blanks, bad information, or outliers.</p>
+<p>Most dataset you work with requires a lot of data cleaning before modeling.  In this exercise, we asssume most of the data have already been cleansed from missing, wrong, duplicates, or out of range data.</p>
 <p>For a further in-depth guide to data pre-processing, please refer <a href="https://www.analyticsvidhya.com/blog/2016/07/practical-guide-data-preprocessing-python-scikit-learn/">here</a></p>
 
 </div>
@@ -12080,7 +12080,7 @@ Category columns have been encoded for machine learning
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Data-Visualization---Correlation-Plot">Data Visualization - Correlation Plot<a class="anchor-link" href="#Data-Visualization---Correlation-Plot">&#182;</a></h4><p>There are many creative method to visually analyze your dataset in order to make hypothesis on your prediction. The most commonly used one for any regression algorithms are correlation plots.</p>
+<h4 id="Data-Visualization---Correlation-Plot">Data Visualization - Correlation Plot<a class="anchor-link" href="#Data-Visualization---Correlation-Plot">&#182;</a></h4><p>There are many creative method to visually analyze your dataset in order to make hypothesis on your prediction. The most commonly used visual for any regression algorithms are correlation plots.</p>
 <p>For more details on other visual methods, please refer <a href="http://pbpython.com/simple-graphing-pandas.html">here</a></p>
 
 </div>
@@ -13546,7 +13546,7 @@ max      1.000000    1.000000    1.000000    1.000000    1.000000    1.000000
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Data-Splitting">Data Splitting<a class="anchor-link" href="#Data-Splitting">&#182;</a></h4><p>It is recommended in Data Science procedure to split your dataset by a large percent chunk for training and use the model created on training set to validate the test set for consistency.  In our example, we will split the training set by 80% and leave the remaining 20% as testing.</p>
+<h4 id="Data-Splitting">Data Splitting<a class="anchor-link" href="#Data-Splitting">&#182;</a></h4><p>It is recommended in Data Science procedure to split your dataset by a large percent chunk for training and use the model created on training set to evaluate it's competency in our remaining test set. In other words, the "math" is built with the train set, and we test our "math" in the test set.  In our example, we will split the training set by 80% and leave the remaining 20% as testing.</p>
 <p><img src="https://www.intechopen.com/source/html/39037/media/image3.jpeg" alt="alt text" title="Train and Test Datasets"></p>
 <p>For more explanation, please refer to this link <a href="https://info.salford-systems.com/blog/bid/337783/Why-Data-Scientists-Split-Data-into-Train-and-Test">here</a></p>
 
@@ -13607,7 +13607,7 @@ max      1.000000    1.000000    1.000000    1.000000    1.000000    1.000000
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a id='regression'></a></p>
-<h3 id="Regression-Modeling">Regression Modeling<a class="anchor-link" href="#Regression-Modeling">&#182;</a></h3><p><a href="#toc">Back to Table of Content</a></p>
+<h3 id="Regressions-Modeling">Regressions Modeling<a class="anchor-link" href="#Regressions-Modeling">&#182;</a></h3><p><a href="#toc">Back to Table of Content</a></p>
 <p>Lets get to the juicy part and actually apply some machine learning models to our ready splitted dataset.  Most of the algorithms have been packaged by <a href="http://scikit-learn.org/stable/">sklearn</a> which makes the code application or usage of machine learning easier than you think.</p>
 <p>For more details about regression analysis, please refer to the link <a href="https://www.analyticsvidhya.com/blog/2015/08/comprehensive-guide-regression/">here</a></p>
 
