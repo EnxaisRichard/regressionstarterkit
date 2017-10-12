@@ -13,8 +13,7 @@
 # ![alt text](https://raw.githubusercontent.com/EnxaisRichard/regressionstarterkit/master/ds.png "ML Categories")
 # 
 # 
-# As Benjamin Franklin always said during his time, “Tell me I forget. Teach me I remember. Involve me I learn.”  
-# So lets focus on predicting numbers in this exercise. We are predicting the "Initial Spread Index" on a [Forest Fire dataset](http://archive.ics.uci.edu/ml/machine-learning-databases/forest-fires/) provided to us by UC Irvine public datasets. There are a bunch of different regression algorithms out there, but we will just work with three models to get you started on finding the optimal prediction. Again, to keep this kit less intimidating to follow, I wll lightly touch on your typical Data Science procedures, but leave a recommended link for those who seek a more in-depth guide. Afterall, we live in the age where “Googling” is the norm for learning a new subject as soon as possible. 
+# As Benjamin Franklin always said during his time, “Tell me I forget. Teach me I remember. Involve me I learn.”  So lets focus on predicting numbers in this exercise. We are predicting the "Initial Spread Index" on a [Forest Fire dataset](http://archive.ics.uci.edu/ml/machine-learning-databases/forest-fires/) provided to us by UC Irvine public datasets. There are a bunch of different regression algorithms out there, but we will just work with three models to get you started on finding the optimal prediction. Again, to keep this kit less intimidating to follow, I wll lightly touch on your typical Data Science procedures, but leave a recommended link for those who seek a more in-depth guide. Afterall, we live in the age where “Googling” is the norm for learning a new subject as soon as possible. 
 
 # <a id='toc'></a>
 # ## Table of Content
