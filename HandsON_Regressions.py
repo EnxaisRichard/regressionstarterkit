@@ -10,7 +10,7 @@
 # 
 # The concept of learning math and programming at the same time might be an intimidating thought to most, but rest assured, we will only go into high-level concepts here for this "regression" algorithms starter-kit. You might be thinking, what's are regression algorithms used for? Please refer to the diagram below for your quick answer.
 # 
-# ![alt text](https://raw.githubusercontent.com/EnxaisRichard/regressionstarterkit/master/ds.png "ML Categories")
+# ![alt text](https://github.com/EnxaisRichard/regressionstarterkit/blob/master/images/ds.png?raw=true "ML Categories")
 # 
 # 
 # As Benjamin Franklin always said during his time, “Tell me I forget. Teach me I remember. Involve me I learn.”  So lets focus on predicting numbers in this exercise. We are predicting the "Initial Spread Index" on a [Forest Fire dataset](http://archive.ics.uci.edu/ml/machine-learning-databases/forest-fires/) provided to us by UC Irvine public datasets. There are a bunch of different regression algorithms out there, but we will just work with three models to get you started on finding the optimal prediction. Again, to keep this kit less intimidating to follow, I wll lightly touch on your typical Data Science procedures, but leave a recommended link for those who seek a more in-depth guide. Afterall, we live in the age where “Googling” is the norm for learning a new subject as soon as possible. 
@@ -213,7 +213,7 @@ print("-------------------------------------")
 # 
 # It is recommended in Data Science procedure to split your dataset by a large percent chunk for training and use the model created on training set to evaluate it's competency in our remaining test set. In other words, the "math" is built with the train set, and we test our "math" in the test set.  In our example, we will split the training set by 80% and leave the remaining 20% as testing.
 # 
-# ![alt text](https://www.intechopen.com/source/html/39037/media/image3.jpeg "Train and Test Datasets")
+# ![alt text](https://github.com/EnxaisRichard/regressionstarterkit/blob/master/images/splitting_data.PNG?raw=true "Train and Test Datasets")
 # 
 # For more explanation, please refer to this link [here](https://info.salford-systems.com/blog/bid/337783/Why-Data-Scientists-Split-Data-into-Train-and-Test)
 
@@ -300,7 +300,7 @@ print("-------------------------------------")
 # [Back to Table of Content](#toc)
 # To test your model consistent, typically you have to divide your data out K number of times as well as run the model K number of times with different subsets of training and validation datasets each round.
 # 
-# ![alt text](https://upload.wikimedia.org/wikipedia/commons/1/1c/K-fold_cross_validation_EN.jpg "4KFolds Cross-Validation")
+# ![alt text](https://github.com/EnxaisRichard/regressionstarterkit/blob/master/images/cross-validation.PNG?raw=true "4KFolds Cross-Validation")
 # 
 # 
 # For a more in-depth guide for cross-validation, please refer to the link [here](https://www.analyticsvidhya.com/blog/2015/11/improve-model-performance-cross-validation-in-python-r/)
