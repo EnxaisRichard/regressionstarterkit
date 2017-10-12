@@ -5,14 +5,16 @@
 
 # Are you ready to get some machine learning experience under your belt?
 # 
-# We are in 2017 and every Fortune 500 company is talking about leveraging machine learning algorithms to future proof and automate their business.  Leading scientists are predicting Moore's Law for technology is becoming impossible and the shift will focus on making computers more accessible to our species. We see the [effects of machine learning](https://www.forbes.com/sites/bernardmarr/2016/09/30/what-are-the-top-10-use-cases-for-machine-learning-and-ai/#63c6398e94c9) escalating to make everyday life more personalized to everyone.  Online shopping recommendation, auto-enhancing selfies, self-driving cars, or even unlocking our phones are driven by machine learning technology.
+# We are in 2017 and every Fortune 500 company are finding ways to leverage machine learning algorithms to future proof and automate their business.  Leading scientists are predicting Moore's Law on the growth for technology will become stale and the shift will move to making machines more smarter to the human race. We see the [effects of machine learning]
+# (https://www.forbes.com/sites/bernardmarr/2016/09/30/what-are-the-top-10-use-cases-for-machine-learning-and-ai/#63c6398e94c9) escalating to make everyday life more personalized to everyone.  Online shopping recommendation, auto-enhancing selfies, self-driving cars, or even unlocking our phones are driven by machine learning technology.
 # 
-# Like most people, everyone is pondering on how machine learning operates in the background? Well machine learning algorithms are divided based on the data available.  
+# The concept of learning math and programming at the same time might be an intimidating thought to most, but rest assured, we will only go into high-level concepts here for this "regression" algorithms starter-kit. You might be thinking, what's are regression algorithms used for? Please refer to the diagram below for your quick answer.
 # 
 # ![alt text](https://raw.githubusercontent.com/EnxaisRichard/regressionstarterkit/master/ds.png "ML Categories")
 # 
 # 
-# In this blog, we will focus on trying out building a regression model (What numeric value are you trying to predict or forecast?) in Python on a public dataset.  If you are new to programming or even Data Science, this would be a perfect starting point to get hands on experience.  As Benjamin Franklin always said during his time, “Tell me I forget. Teach me I remember. Involve me I learn.”  In efforts to keep this tutotial less intimidating to follow, I wll lightly touch on your typical Data Science procedures, but leave a recommended link for those who seek a more in-depth guide. Afterall, we live in the age where “Googling” is the norm for learning a new subject as soon as possible.
+# As Benjamin Franklin always said during his time, “Tell me I forget. Teach me I remember. Involve me I learn.”  
+# So lets focus on predicting numbers in this exercise. We are predicting the "Initial Spread Index" on a [Forest Fire dataset](http://archive.ics.uci.edu/ml/machine-learning-databases/forest-fires/) provided to us by UC Irvine public datasets. There are a bunch of different regression algorithms out there, but we will just work with three models to get you started on finding the optimal prediction. Again, to keep this kit less intimidating to follow, I wll lightly touch on your typical Data Science procedures, but leave a recommended link for those who seek a more in-depth guide. Afterall, we live in the age where “Googling” is the norm for learning a new subject as soon as possible. 
 
 # <a id='toc'></a>
 # ## Table of Content
@@ -360,7 +362,7 @@ for x in range(number_of_regressions):
 # 
 # For more evaluation metric for modeling performance, please check out the link [here](https://machinelearningmastery.com/metrics-evaluate-machine-learning-algorithms-python/).
 
-# In[60]:
+# In[9]:
 
 #create list of empty arrays for predictions
 length_predictions = len(X_test)
@@ -383,19 +385,18 @@ for x in range(number_of_regressions):
     
     #assign best parameter predictions
     reg_predictions_cycle[x] = current_regression.predict(X_test)
-    print("The {} have been assigned to prediction variable".format(current_reg_name))
-    print(current_regression.predict(X_test))
+    print("The {} have been assigned to prediction variable for plotting".format(current_reg_name))
     print("-------------------------------------")
     
     
 
 
-# In[ ]:
+# #### Conclusion
+# [Back to Table of Content](#toc)
+# 
+# If your accuracy is close to 99% accuracy, you can always assume the model is [overfitted](https://machinelearningmastery.com/overfitting-and-underfitting-with-machine-learning-algorithms/).  Meaning the model is very bias in nature and will be very inaccurate when introduced new data.  Typically, there is a "sweet spot" and it is generally found when your train and test score is close enough (too close indicates [underfitting](https://machinelearningmastery.com/overfitting-and-underfitting-with-machine-learning-algorithms/) to each other.
 
-
-
-
-# In[12]:
+# In[10]:
 
 #we create function to plot actual vs predicted target values
 def actual_vs_predicted(predicted_values, regression_names, test_score, train_score, color):   
@@ -414,7 +415,7 @@ print("function for graph completed")
 print("-------------------------------------")
 
 
-# In[69]:
+# In[11]:
 
 #place all variables created through function for plotting actual vs predicted values
 plt.figure(figsize=(15,7.5))
@@ -429,6 +430,8 @@ plt.legend()
 plt.show()
 print("-------------------------------------")
 
+
+# We can conclude the fitting for Random Forest seems most promising as GBM and AdaBoost Regression shows greater outliers for their prediction points. Remember, Random Forest train and test score were not the highest, but the delta score between them were the lowest. [Lesson learned here](http://blog.minitab.com/blog/adventures-in-statistics-2/regression-analysis-how-do-i-interpret-r-squared-and-assess-the-goodness-of-fit) is to always be sure to check your residual plots, because you can't judge a score by it's high value.
 
 # In[ ]:
 
