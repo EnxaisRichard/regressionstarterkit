@@ -5,15 +5,14 @@
 
 # Are you ready to get some machine learning experience under your belt?
 # 
-# We are in 2017 and every Fortune 500 company are finding ways to leverage machine learning algorithms to future proof and automate their business.  Leading scientists are predicting Moore's Law on the growth for technology will become stale and the shift will move to making machines more smarter to the human race. We see the [effects of machine learning]
-# (https://www.forbes.com/sites/bernardmarr/2016/09/30/what-are-the-top-10-use-cases-for-machine-learning-and-ai/#63c6398e94c9) escalating to make everyday life more personalized to everyone.  Online shopping recommendation, auto-enhancing selfies, self-driving cars, or even unlocking our phones are driven by machine learning technology.
+# We are in 2017 and every Fortune 500 company is finding ways to leverage machine learning algorithms to future proof and automate their business.  Leading scientists are predicting Moore's Law on the technology growth will become stale and we will instead see a shift to making machines smarter and more capable. The [effects of machine learning](https://www.forbes.com/sites/bernardmarr/2016/09/30/what-are-the-top-10-use-cases-for-machine-learning-and-ai/#63c6398e94c9) are already impacting everyday life as businesses work to connect with customers and users in a more personalized manner.  Online shopping recommendations, auto-enhancing selfies, self-driving cars, and even the technologies that unlocks our phones are all driven by machine learning technology.
 # 
 # The concept of learning math and programming at the same time might be an intimidating thought to most, but rest assured, we will only go into high-level concepts here for this "regression" algorithms starter-kit. You might be thinking, what's are regression algorithms used for? Please refer to the diagram below for your quick answer.
 # 
 # ![alt text](https://github.com/EnxaisRichard/regressionstarterkit/blob/master/images/ds.png?raw=true "ML Categories")
 # 
 # 
-# As Benjamin Franklin always said during his time, “Tell me I forget. Teach me I remember. Involve me I learn.”  So lets focus on predicting numbers in this exercise. We are predicting the "Initial Spread Index" on a [Forest Fire dataset](http://archive.ics.uci.edu/ml/machine-learning-databases/forest-fires/) provided to us by UC Irvine public datasets. There are a bunch of different regression algorithms out there, but we will just work with three models to get you started on finding the optimal prediction. Again, to keep this kit less intimidating to follow, I wll lightly touch on your typical Data Science procedures, but leave a recommended link for those who seek a more in-depth guide. Afterall, we live in the age where “Googling” is the norm for learning a new subject as soon as possible. 
+# As Benjamin Franklin said, “Tell me I forget. Teach me I remember. Involve me I learn.” This starter kit provides an introduction to data science and way for you to engage and learn by applying foundational concepts.  This first exercise will use a Forest Fire dataset provided to us by UC Irvine public datasets and will focus on predicting numbers, specifically the “Initial Spread Index or the velocity at which the fire is expected to spread.” We will start by working with just three models to find the optimal prediction. Following the exercise, a link will be provided for additional in-depth learning on the data science concepts that were introduced.
 
 # <a id='toc'></a>
 # ## Table of Content
@@ -93,7 +92,9 @@ print("-------------------------------------")
 
 # #### Forest Fire Dataset
 # We will be experimenting with the Forest Fire Data. The target value we will be predicting will be "ISI - Initial Spread Index."  
-# UC Irvine has kindly provided the full variable descriptions below incase you wanted more details.
+# UC Irvine has kindly provided the full variable descriptions as shown below.
+# 
+# The forest Fire Weather Index (FWI) is the Canadian system for rating fire danger and it includes six components: Fine Fuel Moisture Code (FFMC), Duff Moisture Code (DMC), Drought Code (DC), Initial Spread Index (ISI), Buildup Index (BUI) and FWI. The first three are related to fuel codes: the FFMC denotes the moisture content surface litter and influences ignition and fire spread, while the DMC and DC represent the moisture content of shallow and deep organic layers, which affect fire intensity. The ISI is a score that correlates with fire velocity spread, while BUI represents the amount of available fuel. The FWI index is an indicator of fire intensity and it combines the two previous components.
 # 
 #    1. X - x-axis spatial coordinate within the Montesinho park map: 1 to 9
 #    2. Y - y-axis spatial coordinate within the Montesinho park map: 2 to 9
@@ -120,7 +121,7 @@ print("-------------------------------------")
 # ### Data Pre-Processing
 # [Back to Table of Content](#toc)
 # 
-# Most dataset you work with requires a lot of data cleaning before modeling.  In this exercise, we asssume most of the data have already been cleansed from missing, wrong, duplicates, or out of range data.
+# Most dataset you work with requires a lot of data cleaning before modeling.  In this exercise, we assume most of the data have already been cleansed from missing, wrong, duplicates, or out of range data.
 # 
 # For a further in-depth guide to data pre-processing, please refer [here](https://www.analyticsvidhya.com/blog/2016/07/practical-guide-data-preprocessing-python-scikit-learn/)
 
@@ -151,7 +152,7 @@ print(dataframe.head(5))
 print("-------------------------------------")
 
 
-# Our purpose for statisical summary is to examine our dataset for any unusual outliers or missing data that could throw off our model.
+# Our purpose for statistical summary is to examine our dataset for any unusual outliers or missing data that could throw off our model.
 
 # #### Data Visualization - Correlation Plot
 # There are many creative method to visually analyze your dataset in order to make hypothesis on your prediction. The most commonly used visual for any regression algorithms are correlation plots. 
@@ -211,7 +212,7 @@ print("-------------------------------------")
 
 # #### Data Splitting
 # 
-# It is recommended in Data Science procedure to split your dataset by a large percent chunk for training and use the model created on training set to evaluate it's competency in our remaining test set. In other words, the "math" is built with the train set, and we test our "math" in the test set.  In our example, we will split the training set by 80% and leave the remaining 20% as testing.
+# It is recommended in Data Science procedure to split your dataset by a large percent chunk for training and use the model created on training set to evaluate its competency in our remaining test set. In other words, the "math" is built with the train set, and we test our "math" in the test set.  In our example, we will split the training set by 80% and leave the remaining 20% as testing.
 # 
 # ![alt text](https://github.com/EnxaisRichard/regressionstarterkit/blob/master/images/splitting_data.PNG?raw=true "Train and Test Datasets")
 # 
@@ -357,7 +358,7 @@ for x in range(number_of_regressions):
 # #### Evaluation Metric
 # [Back to Table of Content](#toc)
 # 
-# In this example we will be using the coefficent of determinination to score our model performance. It rates the model from 0-100 percent, making it very easy to interpret.
+# In this example we will be using the coefficient of determination to score our model performance. It rates the model from 0-100 percent, making it very easy to interpret.
 # 
 # For more evaluation metric for modeling performance, please check out the link [here](https://machinelearningmastery.com/metrics-evaluate-machine-learning-algorithms-python/).
 
@@ -393,7 +394,7 @@ for x in range(number_of_regressions):
 # #### Conclusion
 # [Back to Table of Content](#toc)
 # 
-# If your accuracy is close to 99% accuracy, you can always assume the model is [overfitted](https://machinelearningmastery.com/overfitting-and-underfitting-with-machine-learning-algorithms/).  Meaning the model is very bias in nature and will be very inaccurate when introduced new data.  Typically, there is a "sweet spot" and it is generally found when your train and test score is close enough (too close indicates [underfitting](https://machinelearningmastery.com/overfitting-and-underfitting-with-machine-learning-algorithms/) to each other.
+# If your accuracy is close to 99% accuracy, you can always assume the model is [overfitted](https://machinelearningmastery.com/overfitting-and-underfitting-with-machine-learning-algorithms/), meaning the model is very bias in nature and will be very inaccurate when introduced new data.  Typically, there is a "sweet spot" and it is generally found when your train and test score is close enough (too close indicates [underfitting](https://machinelearningmastery.com/overfitting-and-underfitting-with-machine-learning-algorithms/) to each other.
 
 # In[10]:
 
@@ -430,7 +431,7 @@ plt.show()
 print("-------------------------------------")
 
 
-# We can conclude the fitting for Random Forest seems most promising as GBM and AdaBoost Regression shows greater outliers for their prediction points. Remember, Random Forest train and test score were not the highest, but the delta score between them were the lowest. [Lesson learned here](http://blog.minitab.com/blog/adventures-in-statistics-2/regression-analysis-how-do-i-interpret-r-squared-and-assess-the-goodness-of-fit) is to always be sure to check your residual plots, because you can't judge a score by it's high value.
+# We can conclude the fitting for Random Forest seems most promising as GBM and AdaBoost Regression shows greater outliers for their prediction points. Remember, Random Forest train and test score were not the highest, but the delta score between them were the lowest. [Lesson learned here](http://blog.minitab.com/blog/adventures-in-statistics-2/regression-analysis-how-do-i-interpret-r-squared-and-assess-the-goodness-of-fit) is to always be sure to check your residual plots, because you can't judge a score by its high value.
 
 # In[ ]:
 
