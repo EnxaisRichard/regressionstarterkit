@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# # Enaxis Data Science Regression Algorithms Starter-Kit with Python
+# ![alt text](https://github.com/EnxaisRichard/regressionstarterkit/blob/master/images/blogtitle.PNG?raw=true "Enaxis ML Blog Title")
 
 # Are you ready to get some machine learning experience under your belt?
 # 
@@ -41,7 +41,7 @@
 # 
 # > For a more in depth guide, please click [here](https://medium.com/k-folds/setting-up-a-data-science-environment-5e6fd1cbd572).
 
-# ![alt text](http://jupyter-notebook.readthedocs.io/en/latest/_images/dashboard-sort.png "Jupyter Preview")
+# ![alt text](https://github.com/EnxaisRichard/regressionstarterkit/blob/master/images/jupyternotebook_preview.PNG?raw=true "Jupyter Preview")
 
 # <a id='ingestion'></a>
 # ### Data Ingestion
